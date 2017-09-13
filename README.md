@@ -4,7 +4,7 @@ Custom Character Generator for HD44780 LCD Modules
 
 Usage
 -----
-The generator is available [here](http://allain18.github.io/lcdchargen/).
+The generator is available [here](https://allain18.github.io/lcd-library/).
 
 Click on the blocks to create a custom character which will automatically generate output.
 
