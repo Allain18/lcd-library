@@ -22,56 +22,55 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
         body {
             text-align: center;
         }
-        
+
         pre {
             margin-left: 25px;
             text-align: left;
         }
-        
+
         table {
             width: 100%;
         }
-        
+
         #wrapper {
             width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         #pixels {
             width: 200px;
             float: left;
         }
-        
+
         #code {
             width: 200px;
             float: left;
         }
-        
-        
+
+
         #arduino {
             padding-top: 30px;
             clear: both;
         }
-        
+
         .pixel {
             width: 20px;
             height: 20px;
             border: 1px solid #ccc;
         }
-        
+
         .off {
             background: #5EFB6E;
         }
-        
+
         .on {
             background: #484848;
         }
     </style>
 
-    <script src="jquery-1.12.4.min.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
     <script>
-    
         // Create a 2D array for the custom char
         var customchar = new Array(8);
         for (i = 0; i < 8; i++) {
@@ -79,7 +78,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
         }
 
         function clear() {
-        
+
             // Clear array
             for (i = 0; i < 8; i++) {
                 for (j = 0; j < 5; j++) {
@@ -93,7 +92,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
         }
 
         function togglePixel(pixel) {
-        
+
             // Get row/column of pixel from the ID
             var id = $(pixel).attr('id').split("-");
             var row = id[1];
@@ -112,7 +111,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
         }
 
         function invert() {
-        
+
             // Toggle all pixels
             $('.pixel').each(function(index) {
                 togglePixel($(this));
@@ -120,7 +119,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
         }
 
         function generateOutput(data) {
-        
+
             // Create output
             var output = '';
             var _hex = 0;
@@ -138,7 +137,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
                 output += _hex.toString(16).toUpperCase();
                 _hex = 0;
                 _j = 0;
-                output += ';\n'; 
+                output += ';\n';
             }
 
             // Update the code display
@@ -147,7 +146,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
 
 
         $(document).ready(function() {
-        
+
             // Clear/initialise the pixels and array
             clear();
 
@@ -170,7 +169,7 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
 
             // Bind a click event listener to pixels
             $(".pixel").click(function() {
-            
+
                 // Toggle pixels
                 togglePixel($(this));
 
@@ -257,13 +256,14 @@ this stuff is worth it, you can buy me a beer in return. Omer Kilic
         </div>
         <div id="arduino">
             <h2>Example Stm32f0 Program</h2>
-            <!--<span><a href="http://www.arduino.cc/en/Reference/LiquidCrystal">(LiquidCrystal library reference)</a></span>-->
+            <span><a href="https://github.com/Allain18/lcd-library">(LiquidCrystal library reference)</a></span>
             <pre>
+            <a>href="url">link text</a>
 #include &lt;lcd.h&gt;
 void main(void)
 {
   unsigned char customChar[8];
-  
+
   LCD_Setup();
   LCD_PowerOn();
   // initialize the library
@@ -280,7 +280,7 @@ void main(void)
             <pre>
   LCD_NewChar(0, customChar);
   LCD_Putc(0);
-  
+
   while(1);
 }
             </pre>
